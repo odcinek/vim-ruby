@@ -188,4 +188,14 @@ describe "Indenting" do
     EOF
   end
 
+  specify "continuation with if" do
+    # See https://github.com/vim-ruby/vim-ruby/issues/17 for details
+    assert_correct_indenting <<-EOF
+      a and
+        (b and
+         c) and
+        X
+    EOF
+  end
+
 end
